@@ -39,12 +39,16 @@ public class PlayerGrowth : MonoBehaviour
 		growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
 	}
     
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		Transform otherTransform = col.GetComponent<Transform>();
-		if (transform.localScale.x >= otherTransform.localScale.x && transform.localScale.y >= otherTransform.localScale.y) {
-			eatAndGrow(otherTransform.localScale.x / transform.localScale.x);
-			Destroy(col.gameObject);
-		}
-	}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Cell")
+        {
+            Transform other = col.GetComponent<Transform>();
+            if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
+            {
+                eatAndGrow();
+                Destroy(col.gameObject);
+            }
+        }
+    }
 }

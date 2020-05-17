@@ -28,6 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         mousePosition.z = 1f;
-        this.transform.position = Vector3.Lerp(this.transform.position, mainCamera.ScreenToWorldPoint(mousePosition), moveSpeed / this.transform.localScale.x * Time.deltaTime);
+        this.transform.position = Vector2.Lerp(this.transform.position, mainCamera.ScreenToWorldPoint(mousePosition), moveSpeed / this.transform.localScale.x * Time.deltaTime);
     }
 }
