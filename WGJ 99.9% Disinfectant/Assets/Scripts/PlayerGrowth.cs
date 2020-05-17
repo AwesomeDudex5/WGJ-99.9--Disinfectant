@@ -26,13 +26,13 @@ public class PlayerGrowth : MonoBehaviour
     {
     	if (isGrowing)
     	{
-    		Vector3 newScale = new Vector3(spriteTransform.localScale.x + growthSpeed * Time.deltaTime, spriteTransform.localScale.y + growthSpeed * Time.deltaTime, 1);
-    		spriteTransform.localScale = newScale;
+    		Vector3 newScale = new Vector3(transform.localScale.x + growthSpeed * Time.deltaTime, transform.localScale.y + growthSpeed * Time.deltaTime, 1);
+    		transform.localScale = newScale;
     		
-    		if (spriteTransform.localScale.x >= targetScale.x && spriteTransform.localScale.y >= targetScale.y)
+    		if (transform.localScale.x >= targetScale.x && transform.localScale.y >= targetScale.y)
     		{
     			isGrowing = false;
-    			spriteTransform.localScale = targetScale;
+    			transform.localScale = targetScale;
     		}
     	}
     }
@@ -40,15 +40,17 @@ public class PlayerGrowth : MonoBehaviour
     void eatAndGrow()
     {
     	isGrowing = true;
-    	targetScale = new Vector3(spriteTransform.localScale.x * growthScaleMultiplier, spriteTransform.localScale.y * growthScaleMultiplier, 1);
-    	growthSpeed = (targetScale.x - spriteTransform.localScale.x) / GROWTH_DURATION;
+    	targetScale = new Vector3(transform.localScale.x * growthScaleMultiplier, transform.localScale.y * growthScaleMultiplier, 1);
+    	growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
     }
     
     void OnTriggerEnter2D(Collider2D col)
     {
-    	Transform other = col.transform.GetChild(0).GetComponent<Transform>();
-    	if (spriteTransform.localScale.x > other.localScale.x && spriteTransform.localScale.y > other.localScale.y)
+    	Transform other = col.GetComponent<Transform>();
+    	if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
+    	{
     		eatAndGrow();
-    	Destroy(col.gameObject);
+    		Destroy(col.gameObject);
+    	}
     }
 }
