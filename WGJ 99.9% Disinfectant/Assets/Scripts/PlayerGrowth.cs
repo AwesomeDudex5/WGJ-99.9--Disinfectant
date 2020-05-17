@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerGrowth : MonoBehaviour
 {
-	[SerializeField]
-	private float growthScaleMultiplier = 1.0f;
 	private const float GROWTH_DURATION = 2.0f;
 	private float growthSpeed;
 	private Vector3 targetScale;
@@ -33,19 +31,19 @@ public class PlayerGrowth : MonoBehaviour
 		}
 	}
     
-	void eatAndGrow()
+	void eatAndGrow(float ammount)
 	{
 		isGrowing = true;
 		Debug.Log(isGrowing);
-		targetScale = new Vector3(transform.localScale.x * growthScaleMultiplier, transform.localScale.y * growthScaleMultiplier, 1);
+		targetScale = new Vector3(transform.localScale.x + ammount, transform.localScale.y + ammount, 1);
 		growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
 	}
     
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		Transform other = col.GetComponent<Transform>();
-		if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y) {
-			eatAndGrow();
+		Transform otherTransform = col.GetComponent<Transform>();
+		if (transform.localScale.x >= otherTransform.localScale.x && transform.localScale.y >= otherTransform.localScale.y) {
+			eatAndGrow(otherTransform.localScale.x / transform.localScale.x);
 			Destroy(col.gameObject);
 		}
 	}
