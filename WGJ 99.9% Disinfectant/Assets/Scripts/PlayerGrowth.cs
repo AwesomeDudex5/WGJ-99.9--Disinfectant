@@ -34,19 +34,18 @@ public class PlayerGrowth : MonoBehaviour
 	void eatAndGrow(float ammount)
 	{
 		isGrowing = true;
-		Debug.Log(isGrowing);
 		targetScale = new Vector3(transform.localScale.x + ammount, transform.localScale.y + ammount, 1);
 		growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
 	}
     
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Cell")
         {
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
-                eatAndGrow(other.localScale.x / transform.localScale.x);
+                eatAndGrow(other.localScale.x / transform.localScale.x / transform.childCount);
                 Destroy(col.gameObject);
             }
         }
