@@ -46,7 +46,7 @@ public class PlayerGrowth : MonoBehaviour
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
-                eatAndGrow();
+                eatAndGrow(other.localScale.x / transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
