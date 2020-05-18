@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
+        mainCamera.orthographicSize = transform.localScale.x * 5;
         mousePosition = Input.mousePosition;
     }
 
