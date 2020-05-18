@@ -6,16 +6,28 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject cellPrefab;
     public GameObject antibodyPrefab;
-    [SerializeField] private float spawnInterval;
-    [SerializeField] private int amountPerSpawn;
     [SerializeField] private int spawnRange;
 
+    [Header("Cells Stats")]
+    [SerializeField] private float cellSpawnInterval;
+    [SerializeField] private int cellAmountPerSpawn;
+    [SerializeField] private float cellScaleMin, cellScaleMax;
+
+    [Header("Antibody Stats")]
+    [SerializeField] private float antibodySpawnInterval;
+    [SerializeField] private int antibodyAmountPerSpawn;
+    [SerializeField] private float antibodyScaleMin, antibodyScaleMax;
+
     private bool canSpawnCells;
+    public bool initializeAntibodies;
+    private bool canSpawnAntibodies;
+
 
     // Start is called before the first frame update
     void Start()
     {
         canSpawnCells = true;
+        canSpawnAntibodies = true;
     }
 
     // Update is called once per frame
@@ -25,21 +37,52 @@ public class SpawnManager : MonoBehaviour
         {
             StartCoroutine(spawnCells());
         }
+        if(initializeAntibodies)
+        {
+            if(canSpawnAntibodies)
+            {
+                StartCoroutine(spawnAntibodies());
+            }
+
+        }
 
     }
 
     IEnumerator spawnCells()
     {
         canSpawnCells = false;
-        float randomX, randomY;
-        for (int i = 0; i < amountPerSpawn; i++)
+        float randomX, randomY, randomScale;
+        for (int i = 0; i < cellAmountPerSpawn; i++)
         {
             randomX = Random.Range(-spawnRange, spawnRange);
             randomY = Random.Range(-spawnRange, spawnRange);
-            Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
+            randomScale = Random.Range(cellScaleMin, cellScaleMax);
+
+            GameObject cellObject = Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
+            cellObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
         }
 
-        yield return new WaitForSeconds(spawnInterval);
+        yield return new WaitForSeconds(cellSpawnInterval);
         canSpawnCells = true;
+    }
+
+    IEnumerator spawnAntibodies()
+    {
+        canSpawnAntibodies = false;
+
+        float randomX, randomY, randomScale;
+        for (int i = 0; i < cellAmountPerSpawn; i++)
+        {
+            randomX = Random.Range(-spawnRange, spawnRange);
+            randomY = Random.Range(-spawnRange, spawnRange);
+            randomScale = Random.Range(cellScaleMin, cellScaleMax);
+
+            GameObject antibodyObject = Instantiate(antibodyPrefab, new Vector2(randomX, randomY), Quaternion.identity);
+            antibodyObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
+        }
+
+        yield return new WaitForSeconds(antibodySpawnInterval);
+        canSpawnAntibodies = true;
+
     }
 }

@@ -35,7 +35,7 @@ public class GermGrowth : MonoBehaviour
 
     void eatAndGrow(float ammount)
     {   
-    	// GameManager.current.increasePercentage(ammount);
+    	GameManager.current.increasePercentage(ammount);
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
         growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
