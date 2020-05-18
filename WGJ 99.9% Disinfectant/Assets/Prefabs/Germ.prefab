@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099087738668459496}
   - component: {fileID: 2099087739176580416}
+  - component: {fileID: 2226594113876886144}
   - component: {fileID: 1764570508550198382}
   - component: {fileID: 8148690052457668560}
   m_Layer: 0
@@ -55,6 +56,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2226594113876886144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099087738668459499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b2296d7cf163443bd7196c128b42f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrowing: 0
 --- !u!58 &1764570508550198382
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 7438147259432376866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6.7, z: 6.7}
+  m_LocalScale: {x: 6.7, y: 6.7, z: 6.7}
   m_Children: []
   m_Father: {fileID: 2099087738668459496}
   m_RootOrder: 0
@@ -153,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 38657333
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.8738921, g: 0.9339623, b: 0.43614274, a: 1}

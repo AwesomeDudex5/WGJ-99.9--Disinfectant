@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGrowth : MonoBehaviour
+public class GermGrowth : MonoBehaviour
 {
 	private const float GROWTH_DURATION = 2.0f;
 	private float growthSpeed;
@@ -31,10 +31,10 @@ public class PlayerGrowth : MonoBehaviour
 		}
 	}
     
-	void eatAndGrow(float ammount)
+	void eatAndGrow(float target)
 	{
 		isGrowing = true;
-		targetScale = new Vector3(transform.localScale.x + ammount, transform.localScale.y + ammount, 1);
+		targetScale = new Vector3(target, target, 1);
 		growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
 	}
     
@@ -45,7 +45,7 @@ public class PlayerGrowth : MonoBehaviour
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
-                eatAndGrow(other.localScale.x / transform.localScale.x / transform.childCount);
+                eatAndGrow(other.localScale.x + transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
