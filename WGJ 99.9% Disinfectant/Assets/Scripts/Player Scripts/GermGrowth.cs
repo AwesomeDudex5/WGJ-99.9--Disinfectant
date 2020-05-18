@@ -53,6 +53,10 @@ public class GermGrowth : MonoBehaviour
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
+            	if (isGrowing)
+            	{
+            		transform.localScale = targetScale;
+            	}
                 eatAndGrow(other.localScale.x + transform.localScale.x);
                 Destroy(col.gameObject);
             }

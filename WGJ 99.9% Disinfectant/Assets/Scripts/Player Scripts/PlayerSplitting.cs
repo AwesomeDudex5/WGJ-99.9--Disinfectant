@@ -24,7 +24,7 @@ public class PlayerSplitting : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !transform.GetComponentInChildren<GermGrowth>().isGrowing)
+        if (Input.GetKeyDown(KeyCode.Space) && !transform.GetComponentInChildren<GermGrowth>().isGrowing && transform.localScale.x > 1)
         {
             split();
         }
