@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class GermGrowth : MonoBehaviour
 {
-    private const float GROWTH_DURATION = 1.0f;
+    private const float GROWTH_DURATION = 0.7f;
     private float growthSpeed;
     private Vector3 targetScale;
     private Transform spriteTransform;
     public bool isGrowing;
+    public GameManager GameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
+        
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class GermGrowth : MonoBehaviour
 
     void eatAndGrow(float ammount)
     {   
-//    	GameManager.current.increasePercentage(ammount);
+    	GameManager.current.increasePercentage(ammount);
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
         growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
@@ -44,6 +46,7 @@ public class GermGrowth : MonoBehaviour
     void shrink(float ammount)
     {
         GameManager.current.decreasePercentage(ammount);
+        transform.localScale = new Vector3(ammount, ammount);
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -57,13 +60,14 @@ public class GermGrowth : MonoBehaviour
             	{
             		transform.localScale = targetScale;
             	}
-                eatAndGrow(other.localScale.x + transform.localScale.x);
+            	eatAndGrow(other.localScale.x / 3 + transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
-        if(col.tag == "Anitbody")
+        if(col.tag == "Antibody")
         {
-            //calculate ammount here
+        	shrink(2 * transform.localScale.x / 3);
+        	Destroy(col.gameObject);
         }
     }
 }

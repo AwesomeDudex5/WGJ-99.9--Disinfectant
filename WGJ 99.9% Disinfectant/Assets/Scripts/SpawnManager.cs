@@ -68,10 +68,11 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator spawnAntibodies()
     {
+    	Debug.Log("Spawned");
         canSpawnAntibodies = false;
 
         float randomX, randomY, randomScale;
-        for (int i = 0; i < cellAmountPerSpawn; i++)
+        for (int i = 0; i < antibodyAmountPerSpawn; i++)
         {
             randomX = Random.Range(-spawnRange, spawnRange);
             randomY = Random.Range(-spawnRange, spawnRange);

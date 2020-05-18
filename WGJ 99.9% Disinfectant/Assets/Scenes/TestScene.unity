@@ -146,15 +146,15 @@ MonoBehaviour:
   antibodyPrefab: {fileID: 9193392004642852256, guid: 66d0da7310ee3af4abb472fee80594e3,
     type: 3}
   spawnRange: 10
-  cellSpawnInterval: 15
+  cellSpawnInterval: 20
   cellAmountPerSpawn: 8
-  cellScaleMin: 0.1
+  cellScaleMin: 0.5
   cellScaleMax: 3
-  antibodySpawnInterval: 15
-  antibodyAmountPerSpawn: 2
+  antibodySpawnInterval: 99999
+  antibodyAmountPerSpawn: 1
   antibodyScaleMin: 1
   antibodyScaleMax: 4
-  initializeAntibodies: 0
+  initializeAntibodies: 1
 --- !u!4 &311012309
 Transform:
   m_ObjectHideFlags: 0
@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrowing: 0
+  GameManager: {fileID: 1899319210}
 --- !u!114 &768305565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 425860644}
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!58 &768305566
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -511,8 +512,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 38657333
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.86331266, b: 0.4764151, a: 1}
