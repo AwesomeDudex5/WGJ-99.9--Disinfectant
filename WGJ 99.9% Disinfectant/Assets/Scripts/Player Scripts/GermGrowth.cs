@@ -9,14 +9,17 @@ public class GermGrowth : MonoBehaviour
     private Vector3 targetScale;
     private Transform spriteTransform;
     public bool isGrowing;
-    public GameManager GameManager;
+    public bool isShrinking;
+
+    private Vector3 newScale;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
-        
+        isShrinking = false;
+
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class GermGrowth : MonoBehaviour
     {
         if (isGrowing)
         {
-            Vector3 newScale = new Vector3(transform.localScale.x + growthSpeed * Time.deltaTime, transform.localScale.y + growthSpeed * Time.deltaTime, 1);
+            newScale = new Vector3(transform.localScale.x + growthSpeed * Time.deltaTime, transform.localScale.y + growthSpeed * Time.deltaTime, 1);
             transform.localScale = newScale;
 
             if (transform.localScale.x >= targetScale.x && transform.localScale.y >= targetScale.y)
@@ -33,11 +36,24 @@ public class GermGrowth : MonoBehaviour
                 transform.localScale = targetScale;
             }
         }
+
+        if (isShrinking)
+        {
+            newScale = new Vector3(transform.localScale.x - growthSpeed * Time.deltaTime, transform.localScale.y - growthSpeed * Time.deltaTime, 1);
+            transform.localScale = newScale;
+            {
+                if (transform.localScale.x <= targetScale.x && transform.localScale.y <= targetScale.y)
+                {
+                    isShrinking = false;
+                    transform.localScale = targetScale;
+                }
+            }
+        }
     }
 
     void eatAndGrow(float ammount)
-    {   
-    	GameManager.current.increasePercentage(ammount);
+    {
+        GameManager.current.increasePercentage(ammount);
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
         growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
@@ -46,7 +62,9 @@ public class GermGrowth : MonoBehaviour
     void shrink(float ammount)
     {
         GameManager.current.decreasePercentage(ammount);
-        transform.localScale = new Vector3(ammount, ammount);
+        isShrinking = true;
+        targetScale = new Vector3(ammount, ammount, 1);
+        growthSpeed = (transform.localScale.x - targetScale.x) / GROWTH_DURATION;
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -56,18 +74,22 @@ public class GermGrowth : MonoBehaviour
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
-            	if (isGrowing)
-            	{
-            		transform.localScale = targetScale;
-            	}
-            	eatAndGrow(other.localScale.x / 3 + transform.localScale.x);
+                if (isGrowing)
+                {
+                    transform.localScale = targetScale;
+                }
+                eatAndGrow(other.localScale.x / 3 + transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
-        if(col.tag == "Antibody")
+        if (col.tag == "Antibody")
         {
-        	shrink(2 * transform.localScale.x / 3);
-        	Destroy(col.gameObject);
+            if (isShrinking)
+            {
+                transform.localScale = targetScale;
+            }
+            shrink(transform.localScale.x - col.transform.localScale.x / 3);
+            Destroy(col.gameObject);
         }
     }
 }
