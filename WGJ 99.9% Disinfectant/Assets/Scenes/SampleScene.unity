@@ -295,8 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1686b7f5ec15ab34f80b6110076236d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpritePrefab: {fileID: 2099087738668459499, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
+  germPrefab: {fileID: 2099087738668459499, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
     type: 3}
+  splitForceAmount: 3
   splitScaleDivider: 2
 --- !u!1001 &1036481557
 PrefabInstance:
