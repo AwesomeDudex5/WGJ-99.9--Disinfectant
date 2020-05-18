@@ -27,8 +27,6 @@ public class PlayerSplitting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !transform.GetComponentInChildren<GermGrowth>().isGrowing)
         {
             split();
-            //transform.localScale = new Vector3(transform.localScale.x / splitScaleDivider, transform.localScale.y / splitScaleDivider, 1);
-            //Instantiate(playerSpritePrefab, transform.position, transform.rotation, transform);
         }
     }
 

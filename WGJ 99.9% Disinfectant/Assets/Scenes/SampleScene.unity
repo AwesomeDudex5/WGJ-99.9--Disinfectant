@@ -722,36 +722,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Germ
       objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099087738668459496, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2099087739176580417, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
         type: 3}
       propertyPath: m_Offset.x
@@ -766,6 +736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099087739176580416, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8148690052457668560, guid: 7f3ff8e5db5e32143a4e557c720a32b1,
         type: 3}

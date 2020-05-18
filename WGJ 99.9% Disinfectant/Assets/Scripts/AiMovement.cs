@@ -74,7 +74,6 @@ public class AiMovement : MonoBehaviour
             {
                 inRange = true;
                 targetPlayerObject = playerObjects[i].transform;
-                // Debug.Log("InRange");
             }
 
         }
@@ -119,7 +118,7 @@ public class AiMovement : MonoBehaviour
             StartCoroutine(startRunningAway());
         }
 
-		// Debug.Log("Player Position: " + targetPlayerObject.position + " | TargetPosition: " + targetPosition);
+        //  Debug.Log("Player Position: " + targetPlayerObject.position + " | TargetPosition: " + targetPosition);
 
     }
 
@@ -127,7 +126,7 @@ public class AiMovement : MonoBehaviour
     {
         //look away from player
         transform.rotation = Quaternion.LookRotation(transform.position - targetPlayerObject.position);
-        
+
         targetPosition = transform.position + transform.forward * detectionRange;
 
         //reset rotation
@@ -144,10 +143,10 @@ public class AiMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-       /* if(col.tag == "Player" && _aiType == aiType.antibody)
-        {
+        /* if(col.tag == "Player" && _aiType == aiType.antibody)
+         {
 
-        }
-        */
+         }
+         */
     }
 }
