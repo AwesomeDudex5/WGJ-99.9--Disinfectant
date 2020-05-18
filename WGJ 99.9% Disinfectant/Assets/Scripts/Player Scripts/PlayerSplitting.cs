@@ -32,6 +32,7 @@ public class PlayerSplitting : MonoBehaviour
 
     void split()
     {
+        Debug.Log("Splitting");
         transform.localScale = new Vector3(transform.localScale.x / splitScaleDivider, transform.localScale.y / splitScaleDivider, 1);
         GameObject otherGerm = Instantiate(germPrefab, transform.position, Quaternion.identity);
         otherGerm.transform.localScale = this.transform.localScale;
