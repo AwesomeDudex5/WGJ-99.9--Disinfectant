@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GermGrowth : MonoBehaviour
 {
-    private const float GROWTH_DURATION = 2.0f;
+    private const float GROWTH_DURATION = 1.0f;
     private float growthSpeed;
     private Vector3 targetScale;
     private Transform spriteTransform;
@@ -35,7 +35,7 @@ public class GermGrowth : MonoBehaviour
 
     void eatAndGrow(float ammount)
     {   
-    	GameManager.current.increasePercentage(ammount);
+//    	GameManager.current.increasePercentage(ammount);
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
         growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
