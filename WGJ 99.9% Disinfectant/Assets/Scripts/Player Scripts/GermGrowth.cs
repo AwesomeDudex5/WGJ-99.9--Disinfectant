@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GermGrowth : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class GermGrowth : MonoBehaviour
     private Transform spriteTransform;
     public bool isGrowing;
     public bool isShrinking;
-
     private Vector3 newScale;
+    public Text playerScaleText;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class GermGrowth : MonoBehaviour
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
         isShrinking = false;
-
+        setPlayerScaleText();
     }
 
     // Update is called once per frame
@@ -49,6 +50,8 @@ public class GermGrowth : MonoBehaviour
                 }
             }
         }
+        
+        setPlayerScaleText();
     }
 
     void eatAndGrow(float ammount)
@@ -78,7 +81,7 @@ public class GermGrowth : MonoBehaviour
                 {
                     transform.localScale = targetScale;
                 }
-                eatAndGrow(other.localScale.x / 3 + transform.localScale.x);
+                eatAndGrow(other.localScale.x / 8 + transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
@@ -88,8 +91,14 @@ public class GermGrowth : MonoBehaviour
             {
                 transform.localScale = targetScale;
             }
-            shrink(transform.localScale.x - col.transform.localScale.x / 3);
+            shrink((transform.localScale.x - col.transform.localScale.x) / 3);
             Destroy(col.gameObject);
         }
+    }
+    
+    void setPlayerScaleText()
+    {
+    	if (playerScaleText != null)
+    		playerScaleText.text = "Player's scale: " + (int)(transform.localScale.x * 100);
     }
 }

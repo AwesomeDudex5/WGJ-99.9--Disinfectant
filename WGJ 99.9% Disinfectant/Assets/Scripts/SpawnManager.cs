@@ -21,7 +21,9 @@ public class SpawnManager : MonoBehaviour
     private bool canSpawnCells;
     public bool initializeAntibodies;
     private bool canSpawnAntibodies;
-
+    
+    
+    [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,8 @@ public class SpawnManager : MonoBehaviour
 
         }
 
+        // Max scale depends on the scale of Player
+        cellScaleMax = player.transform.localScale.x * 1.5f;
     }
 
     IEnumerator spawnCells()
