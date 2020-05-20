@@ -82,6 +82,17 @@ public class GermGrowth : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
+        // Only use dynamic body with borders, kinematic with cell and antibodies
+        var rb = GetComponent<Rigidbody2D>();
+        if (col.tag == "Border")
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else if (rb.bodyType == RigidbodyType2D.Dynamic && (col.tag == "Cell" || col.tag == "Antibodies") )
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+
         if (col.tag == "Cell")
         {
             Transform other = col.GetComponent<Transform>();
@@ -100,6 +111,7 @@ public class GermGrowth : MonoBehaviour
             shrink(transform.localScale.x - col.transform.localScale.x / 3);
             Destroy(col.gameObject);
         }
+
     }
 
 }

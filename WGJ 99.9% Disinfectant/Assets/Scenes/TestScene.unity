@@ -145,11 +145,11 @@ RectTransform:
   m_Father: {fileID: 1671176484}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.299988, y: -323.4}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 68.43, y: 71.19}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &27528101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   cellScaleMin: 1
   cellScaleMax: 2
   antibodySpawnInterval: 20
-  antibodyAmountPerSpawn: 5
+  antibodyAmountPerSpawn: 1
   antibodyScaleMin: 1
   antibodyScaleMax: 1
   initializeAntibodies: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 322697463}
   m_Layer: 0
   m_Name: Border (2)
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -547,8 +547,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0, y: 49.999985}
-  m_SizeDelta: {x: 880.6, y: 108.100006}
+  m_AnchoredPosition: {x: 0, y: 35.595}
+  m_SizeDelta: {x: 261.24, y: 53.657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460614355
 MonoBehaviour:
@@ -572,10 +572,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c9fd77086f16dd74598f21c7731ad572, type: 3}
-    m_FontSize: 55
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 55
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 561142656}
   m_Layer: 0
   m_Name: Border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 825536818}
   m_Layer: 0
   m_Name: Border (1)
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 1703506067}
   m_Layer: 0
   m_Name: Border (3)
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1877,6 +1877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048556343926815718, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2521932733052078363, guid: b9c4a3542549df040a6aacd929da6a13, type: 3}
