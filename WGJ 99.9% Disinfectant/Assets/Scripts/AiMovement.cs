@@ -6,10 +6,11 @@ public enum aiType { germ, cell, antibody }
 
 public class AiMovement : MonoBehaviour
 {
+    public Animator anim;
     public aiType _aiType;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float detectionRange;
-    [SerializeField] private float wanderRange;
+    public float moveSpeed;
+    public float detectionRange;
+    public float wanderRange;
     [SerializeField] private float wanderDuration;
     private GameObject[] playerObjects;
     private Transform targetPlayerObject;
@@ -27,7 +28,6 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         switch (_aiType)
         {
             case aiType.germ:
@@ -36,20 +36,25 @@ public class AiMovement : MonoBehaviour
             case aiType.cell:
                 if (inPlayerRange())
                 {
+                    Debug.Log("IN RANGE");
+                    anim.SetBool("RunningAway", true);
                     runAway();
                 }
                 else
                 {
+                    anim.SetBool("RunningAway", false);
                     wander();
                 }
                 break;
             case aiType.antibody:
                 if (inPlayerRange())
                 {
+                    anim.SetBool("Attacking", true);
                     attack();
                 }
                 else
                 {
+                    anim.SetBool("Attacking", false);
                     wander();
                 }
                 break;
@@ -96,6 +101,8 @@ public class AiMovement : MonoBehaviour
 
     IEnumerator startWander()
     {
+        //adjust values as needed ************
+        float currentScale = this.transform.localScale.x;
         float randomX = Random.Range(-wanderRange, wanderRange);
         float randomY = Random.Range(-wanderRange, wanderRange);
         targetPosition = new Vector3(randomX, randomY, 0f);
@@ -141,12 +148,4 @@ public class AiMovement : MonoBehaviour
         targetPosition = targetPlayerObject.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        /* if(col.tag == "Player" && _aiType == aiType.antibody)
-         {
-
-         }
-         */
-    }
 }

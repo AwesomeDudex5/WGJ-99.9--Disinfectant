@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Camera mainCamera;
+    public float cameraDistance;
     public float moveSpeed;
     private Vector3 mousePosition;
     private Rigidbody2D rb;
@@ -19,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
-        mainCamera.orthographicSize = transform.localScale.x * 4f;
+        mainCamera.orthographicSize = transform.localScale.x * cameraDistance;
         mousePosition = Input.mousePosition;
     }
 
     private void FixedUpdate()
     {
-        mousePosition.z = 1f;
+        //mousePosition.z = 1f;
         this.transform.position = Vector2.Lerp(this.transform.position, mainCamera.ScreenToWorldPoint(mousePosition), moveSpeed / this.transform.localScale.x * Time.deltaTime);
     }
 }

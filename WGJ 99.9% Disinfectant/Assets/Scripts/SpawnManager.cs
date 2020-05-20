@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject cellPrefab;
-    public GameObject antibodyPrefab;
+    public GameObject[] antibodyPrefab;
     [SerializeField] private int spawnRange;
+    private Transform currentPlayerScale;
 
     [Header("Cells Stats")]
     [SerializeField] private float cellSpawnInterval;
@@ -22,12 +23,10 @@ public class SpawnManager : MonoBehaviour
     public bool initializeAntibodies;
     private bool canSpawnAntibodies;
 
-
-    [SerializeField] private GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
+        currentPlayerScale = GameObject.FindGameObjectWithTag("Player").transform;
         canSpawnCells = true;
         canSpawnAntibodies = true;
     }
@@ -41,6 +40,7 @@ public class SpawnManager : MonoBehaviour
         }
         if (initializeAntibodies)
         {
+            Debug.Log("Spawning Antibodies");
             if (canSpawnAntibodies)
             {
                 StartCoroutine(spawnAntibodies());
@@ -48,9 +48,6 @@ public class SpawnManager : MonoBehaviour
 
         }
 
-        // Max scale depends on the scale of Player
-        cellScaleMax = player.transform.localScale.x * 1.5f;
-        antibodyScaleMax = player.transform.localScale.x * 1.5f;
     }
 
     IEnumerator spawnCells()
@@ -59,9 +56,10 @@ public class SpawnManager : MonoBehaviour
         float randomX, randomY, randomScale;
         for (int i = 0; i < cellAmountPerSpawn; i++)
         {
-            randomX = Random.Range(player.transform.position.x - spawnRange, player.transform.position.x + spawnRange);
-            randomY = Random.Range(player.transform.position.y - spawnRange, player.transform.position.y + spawnRange);
-            randomScale = Random.Range(cellScaleMin, cellScaleMax);
+            //take a look at this and adjust the values ***********
+            randomX = Random.Range(currentPlayerScale.position.x - spawnRange, currentPlayerScale.position.x + spawnRange);
+            randomY = Random.Range(currentPlayerScale.position.y - spawnRange, currentPlayerScale.position.y + spawnRange);
+            randomScale = Random.Range(currentPlayerScale.localScale.x - cellScaleMin, cellScaleMax + currentPlayerScale.localScale.x);
 
             GameObject cellObject = Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
             cellObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
@@ -74,19 +72,24 @@ public class SpawnManager : MonoBehaviour
     IEnumerator spawnAntibodies()
     {
         canSpawnAntibodies = false;
-
+        
         float randomX, randomY, randomScale;
+        int randomIndex;
         for (int i = 0; i < antibodyAmountPerSpawn; i++)
         {
+            randomIndex = Random.Range(0, antibodyPrefab.Length - 1);
+
             randomX = Random.Range(-spawnRange, spawnRange);
             randomY = Random.Range(-spawnRange, spawnRange);
-            randomScale = Random.Range(antibodyScaleMin, antibodyScaleMax);
+            randomScale = Random.Range(currentPlayerScale.localScale.x - antibodyScaleMin, antibodyScaleMax + currentPlayerScale.localScale.x);
 
-            GameObject antibodyObject = Instantiate(antibodyPrefab, new Vector2(randomX, randomY), Quaternion.identity);
+            GameObject antibodyObject = Instantiate(antibodyPrefab[randomIndex], new Vector2(randomX, randomY), Quaternion.identity);
             antibodyObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
         }
 
         yield return new WaitForSeconds(antibodySpawnInterval);
+
+        //antibodyAmountPerSpawn += Mathf.CeilToInt(GameManager.current.currentInfectionPercent);
         canSpawnAntibodies = true;
 
     }

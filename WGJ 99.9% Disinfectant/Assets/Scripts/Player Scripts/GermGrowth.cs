@@ -14,7 +14,6 @@ public class GermGrowth : MonoBehaviour
     public bool isGrowing;
     public bool isShrinking;
     private Vector3 newScale;
-    public Text playerScaleText;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,7 @@ public class GermGrowth : MonoBehaviour
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
         isShrinking = false;
-        setPlayerScaleText();
+
     }
 
     // Update is called once per frame
@@ -52,8 +51,13 @@ public class GermGrowth : MonoBehaviour
                 }
             }
         }
-        
-        setPlayerScaleText();
+
+        if (transform.localScale.x <= 0.0f && this.tag == "Player")
+        {
+            GameManager.current.gameOverTrigger();
+        }
+
+
     }
 
     void eatAndGrow(float ammount)
@@ -71,7 +75,7 @@ public class GermGrowth : MonoBehaviour
         targetScale = new Vector3(ammount, ammount, 1);
         if (targetScale.x < 1)
         {
-        	Destroy(gameObject);
+            Destroy(gameObject);
         }
         shrinkSpeed = (transform.localScale.x - targetScale.x) / SHRINK_DURATION;
     }
@@ -97,10 +101,5 @@ public class GermGrowth : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
-    
-    void setPlayerScaleText()
-    {
-    	if (playerScaleText != null)
-    		playerScaleText.text = "Player's scale: " + (int)(transform.localScale.x * 100);
-    }
+
 }
