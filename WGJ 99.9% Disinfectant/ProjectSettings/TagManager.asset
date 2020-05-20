@@ -44,6 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Antibody
+    uniqueID: 1383478923
+    locked: 0
   - name: Player
     uniqueID: 38657333
+    locked: 0
+  - name: UI
+    uniqueID: 569704797
     locked: 0

@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void decreasePercentage(float amount)
     {
-        currentInfectionPercent -= amount / 10;
+        currentInfectionPercent -= amount;
         currentInfectionPercent = Mathf.Round(currentInfectionPercent * 100) / 100;
     }
 
