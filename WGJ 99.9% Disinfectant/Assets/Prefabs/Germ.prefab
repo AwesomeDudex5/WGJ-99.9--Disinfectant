@@ -90,7 +90,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 38657333
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4836,7 +4836,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 38657333
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e0ce9416bece79945867167bf2ab87c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4879,7 +4879,6 @@ GameObject:
   - component: {fileID: 6085647867421372347}
   - component: {fileID: 4048556343926815718}
   - component: {fileID: 2084851503646391092}
-  - component: {fileID: 5062578361173315927}
   - component: {fileID: 747230100722461237}
   - component: {fileID: 442399029915829288}
   m_Layer: 0
@@ -4939,22 +4938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrowing: 0
   isShrinking: 0
---- !u!114 &5062578361173315927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4233649915546333770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1686b7f5ec15ab34f80b6110076236d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  germPrefab: {fileID: 8822784552005508861, guid: 07ddb56c6c61da94d9ed3f737893d96d,
-    type: 3}
-  splitForceAmount: 3
-  splitScaleDivider: 2
+  playerScaleText: {fileID: 0}
 --- !u!58 &747230100722461237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5054,7 +5038,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 38657333
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 73f55f7527bda594996c974c79aa5322, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

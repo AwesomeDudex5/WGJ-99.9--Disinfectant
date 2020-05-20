@@ -150,10 +150,10 @@ MonoBehaviour:
   cellAmountPerSpawn: 8
   cellScaleMin: 0.5
   cellScaleMax: 3
-  antibodySpawnInterval: 30
+  antibodySpawnInterval: 20
   antibodyAmountPerSpawn: 1
   antibodyScaleMin: 1
-  antibodyScaleMax: 2
+  antibodyScaleMax: 1
   initializeAntibodies: 0
   player: {fileID: 7672169604382258224}
 --- !u!4 &311012309
@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425860642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.4, y: 4.7, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -429,10 +429,10 @@ RectTransform:
   m_Father: {fileID: 1671176484}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223.21, y: 132.85}
-  m_SizeDelta: {x: 288.38, y: 59.3}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 157.1, y: -29.649994}
+  m_SizeDelta: {x: 288.38, y: 59.300003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1585133507
 MonoBehaviour:
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1366, y: 768}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -543,7 +543,7 @@ Canvas:
   m_GameObject: {fileID: 1671176480}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 425860644}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -552,7 +552,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 569704797
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1671176484
@@ -766,7 +766,7 @@ MonoBehaviour:
   infectionPercentageText: {fileID: 0}
   currentInfectionPercent: 0
   spawnManager: {fileID: 311012308}
-  antibodyPercentStart: 4.5
+  antibodyPercentStart: 3.2
 --- !u!4 &1899319211
 Transform:
   m_ObjectHideFlags: 0
@@ -908,3 +908,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 425860644}
   moveSpeed: 2
+--- !u!114 &7672169604382258226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672169604382258224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1686b7f5ec15ab34f80b6110076236d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  germPrefab: {fileID: 4233649915546333770, guid: b9c4a3542549df040a6aacd929da6a13,
+    type: 3}
+  splitForceAmount: 1
+  splitScaleDivider: 2

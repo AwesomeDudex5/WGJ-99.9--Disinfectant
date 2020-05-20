@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class GermGrowth : MonoBehaviour
 {
     private const float GROWTH_DURATION = 0.7f;
+    private const float SHRINK_DURATION = 1f;
     private float growthSpeed;
+    private float shrinkSpeed;
     private Vector3 targetScale;
     private Transform spriteTransform;
     public bool isGrowing;
@@ -40,7 +42,7 @@ public class GermGrowth : MonoBehaviour
 
         if (isShrinking)
         {
-            newScale = new Vector3(transform.localScale.x - growthSpeed * Time.deltaTime, transform.localScale.y - growthSpeed * Time.deltaTime, 1);
+            newScale = new Vector3(transform.localScale.x - shrinkSpeed * Time.deltaTime, transform.localScale.y - shrinkSpeed * Time.deltaTime, 1);
             transform.localScale = newScale;
             {
                 if (transform.localScale.x <= targetScale.x && transform.localScale.y <= targetScale.y)
@@ -67,7 +69,11 @@ public class GermGrowth : MonoBehaviour
         GameManager.current.decreasePercentage(ammount);
         isShrinking = true;
         targetScale = new Vector3(ammount, ammount, 1);
-        growthSpeed = (transform.localScale.x - targetScale.x) / GROWTH_DURATION;
+        if (targetScale.x < 1)
+        {
+        	Destroy(gameObject);
+        }
+        shrinkSpeed = (transform.localScale.x - targetScale.x) / SHRINK_DURATION;
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -77,21 +83,17 @@ public class GermGrowth : MonoBehaviour
             Transform other = col.GetComponent<Transform>();
             if (transform.localScale.x >= other.localScale.x && transform.localScale.y >= other.localScale.y)
             {
-                if (isGrowing)
-                {
-                    transform.localScale = targetScale;
-                }
-                eatAndGrow(other.localScale.x / 8 + transform.localScale.x);
+                eatAndGrow(other.localScale.x / 10 + transform.localScale.x);
                 Destroy(col.gameObject);
             }
         }
-        if (col.tag == "Antibody")
+        if (col.tag == "Antibody" && !isShrinking)
         {
-            if (isShrinking)
+            if (isGrowing)
             {
-                transform.localScale = targetScale;
+                isGrowing = false;
             }
-            shrink((transform.localScale.x - col.transform.localScale.x) / 3);
+            shrink(transform.localScale.x - col.transform.localScale.x / 3);
             Destroy(col.gameObject);
         }
     }
