@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject cellPrefab;
     public GameObject[] antibodyPrefab;
     [SerializeField] private float spawnRange;
-    [SerializeField] private int antibodySpawnRange;
+    [SerializeField] private float antibodySpawnRange;
     private Transform playerTransform;
 
     [Header("Cells Stats")]
@@ -38,7 +38,8 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
     	spawnRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x - playerTransform.position.x;
-        if (canSpawnCells)
+    	antibodySpawnRange = spawnRange / 2;
+    	if (canSpawnCells)
         {
             StartCoroutine(spawnCells());
         }
@@ -90,7 +91,10 @@ public class SpawnManager : MonoBehaviour
         {
             randomIndex = Random.Range(0, antibodyPrefab.Length);
 
-            randomX = Random.Range(playerTransform.position.x - antibodySpawnRange, playerTransform.position.x + antibodySpawnRange);
+            int result = Random.Range(0, 2);
+            if (result == 0) randomX = playerTransform.position.x - antibodySpawnRange;
+            else randomX = playerTransform.position.x + antibodySpawnRange;
+            
             randomY = Random.Range(playerTransform.position.y - antibodySpawnRange, playerTransform.position.y + antibodySpawnRange);
             randomScale = Random.Range(playerTransform.localScale.x - antibodyScaleMin, antibodyScaleMax + playerTransform.localScale.x);
 
