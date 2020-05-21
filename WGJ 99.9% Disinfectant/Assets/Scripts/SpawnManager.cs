@@ -69,6 +69,11 @@ public class SpawnManager : MonoBehaviour
                 randomScale = Random.Range(1.5f - cellScaleMin, cellScaleMax + 1.5f);
             }
 
+            if(randomScale < 0)
+            {
+                randomScale = 1;
+            }
+
 
             GameObject cellObject = Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
             cellObject.transform.localScale = new Vector3(randomScale, randomScale, 1);

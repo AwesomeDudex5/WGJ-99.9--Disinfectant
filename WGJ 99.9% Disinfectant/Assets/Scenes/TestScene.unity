@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 111708287}
   - component: {fileID: 111708286}
   - component: {fileID: 111708289}
+  - component: {fileID: 111708290}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -330,6 +331,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b93b47c2c45662146bc0af587a143785, type: 3}
+--- !u!82 &111708290
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111708284}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &311012307
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,12 +461,12 @@ MonoBehaviour:
   antibodyPrefab:
   - {fileID: 9193392004642852256, guid: 66d0da7310ee3af4abb472fee80594e3, type: 3}
   - {fileID: 2780192357430162045, guid: 33ded4cac78b3024c91cf0be51267b16, type: 3}
-  spawnRange: 30
+  spawnRange: 40
   antibodySpawnRange: 0
   cellSpawnInterval: 10
   cellAmountPerSpawn: 20
   cellScaleMin: 0.5
-  cellScaleMax: -1
+  cellScaleMax: -20
   antibodySpawnInterval: 0
   antibodyAmountPerSpawn: 0
   antibodyScaleMin: 0
@@ -1194,13 +1291,13 @@ MonoBehaviour:
   - {fileID: 9193392004642852256, guid: 66d0da7310ee3af4abb472fee80594e3, type: 3}
   - {fileID: 2780192357430162045, guid: 33ded4cac78b3024c91cf0be51267b16, type: 3}
   spawnRange: 20
-  antibodySpawnRange: 40
+  antibodySpawnRange: 30
   cellSpawnInterval: 15
   cellAmountPerSpawn: 3
   cellScaleMin: 1.1
   cellScaleMax: 1.5
-  antibodySpawnInterval: 25
-  antibodyAmountPerSpawn: 3
+  antibodySpawnInterval: 21
+  antibodyAmountPerSpawn: 5
   antibodyScaleMin: 1
   antibodyScaleMax: 2
   initializeAntibodies: 0
@@ -1592,6 +1689,7 @@ GameObject:
   - component: {fileID: 1613141118}
   - component: {fileID: 1613141117}
   - component: {fileID: 1613141116}
+  - component: {fileID: 1613141120}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1722,6 +1820,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613141114}
   m_CullTransparentMesh: 0
+--- !u!82 &1613141120
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613141114}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1671176480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2399,7 @@ MonoBehaviour:
   infectionPercentageText: {fileID: 460614355}
   currentMassText: {fileID: 386515422}
   infectionBG: {fileID: 1736183054}
-  currentInfectionPercent: 0
+  currentInfectionPercent: 0.1
   spawnManager: {fileID: 785415623}
   antibodyPercentStart: 15
   atibodyWarningUI: {fileID: 1768809473}
@@ -2233,9 +2427,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7e87d07fa69f2604497588ea96ff437a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.566
   m_Pitch: 1
   Loop: 0
   Mute: 0
