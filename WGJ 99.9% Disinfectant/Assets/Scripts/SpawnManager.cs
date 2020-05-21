@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnRange = (int)Camera.main.orthographicSize;
+        spawnRange = (int)Mathf.Abs(Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x - playerTransform.position.x);
         if (canSpawnCells)
         {
             StartCoroutine(spawnCells());
@@ -60,7 +60,7 @@ public class SpawnManager : MonoBehaviour
             //take a look at this and adjust the values ***********
             randomX = Random.Range(playerTransform.position.x - spawnRange, playerTransform.position.x + spawnRange);
             randomY = Random.Range(playerTransform.position.y - spawnRange, playerTransform.position.y + spawnRange);
-            randomScale = Random.Range(playerTransform.localScale.x * cellScaleMin, cellScaleMax * playerTransform.localScale.x);
+            randomScale = Random.Range(cellScaleMin, cellScaleMax * playerTransform.localScale.x);
 
             GameObject cellObject = Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
             cellObject.transform.localScale = new Vector3(randomScale, randomScale, 1);

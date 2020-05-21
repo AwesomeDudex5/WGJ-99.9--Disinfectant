@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GermGrowth : MonoBehaviour
 {
-    private const float GROWTH_DURATION = 0.7f;
-    private const float SHRINK_DURATION = 1f;
+    public float GROWTH_DURATION = 0.7f;
+    public float SHRINK_DURATION = 1f;
     private float growthSpeed;
     private float shrinkSpeed;
     private Vector3 targetScale;
@@ -82,17 +82,6 @@ public class GermGrowth : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        // Only use dynamic body with borders, kinematic with cell and antibodies
-        var rb = GetComponent<Rigidbody2D>();
-        if (col.tag == "Border")
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-        else if (rb.bodyType == RigidbodyType2D.Dynamic && (col.tag == "Cell" || col.tag == "Antibodies") )
-        {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-        }
-
         if (col.tag == "Cell")
         {
             Transform other = col.GetComponent<Transform>();
