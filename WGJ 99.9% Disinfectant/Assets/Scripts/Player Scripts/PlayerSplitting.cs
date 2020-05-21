@@ -49,7 +49,7 @@ public class PlayerSplitting : MonoBehaviour
         transform.rotation = Quaternion.identity;
 
         //play sound
-        _audioSource.clip = splittingSound;
-        _audioSource.Play();
+        //_audioSource.clip = splittingSound;
+       // _audioSource.Play();
     }
 }
