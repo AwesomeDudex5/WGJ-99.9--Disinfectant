@@ -365,10 +365,10 @@ MonoBehaviour:
   - {fileID: 2780192357430162045, guid: 33ded4cac78b3024c91cf0be51267b16, type: 3}
   spawnRange: 30
   antibodySpawnRange: 0
-  cellSpawnInterval: 5
-  cellAmountPerSpawn: 15
-  cellScaleMin: 1
-  cellScaleMax: -1
+  cellSpawnInterval: 10
+  cellAmountPerSpawn: 10
+  cellScaleMin: 0.5
+  cellScaleMax: 1
   antibodySpawnInterval: 0
   antibodyAmountPerSpawn: 0
   antibodyScaleMin: 0
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425860642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6730, y: -3536, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1194,10 +1194,10 @@ MonoBehaviour:
   - {fileID: 2780192357430162045, guid: 33ded4cac78b3024c91cf0be51267b16, type: 3}
   spawnRange: 20
   antibodySpawnRange: 80
-  cellSpawnInterval: 25
+  cellSpawnInterval: 15
   cellAmountPerSpawn: 3
-  cellScaleMin: 1
-  cellScaleMax: 2
+  cellScaleMin: 1.1
+  cellScaleMax: 1.5
   antibodySpawnInterval: 20
   antibodyAmountPerSpawn: 2
   antibodyScaleMin: 1
