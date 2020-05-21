@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e78f8c12534af34d8e4d8a2d74b6151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b93b47c2c45662146bc0af587a143785, type: 3}
 --- !u!1 &311012307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e78f8c12534af34d8e4d8a2d74b6151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b93b47c2c45662146bc0af587a143785, type: 3}
 --- !u!114 &1613141117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,7 +2205,7 @@ MonoBehaviour:
   infectionPercentageText: {fileID: 460614355}
   currentMassText: {fileID: 386515422}
   infectionBG: {fileID: 1736183054}
-  currentInfectionPercent: 0.1
+  currentInfectionPercent: 0
   spawnManager: {fileID: 785415623}
   antibodyPercentStart: 15
   atibodyWarningUI: {fileID: 1768809473}
