@@ -2125,7 +2125,7 @@ MonoBehaviour:
   infectionPercentageText: {fileID: 460614355}
   currentMassText: {fileID: 386515422}
   infectionBG: {fileID: 1736183054}
-  currentInfectionPercent: 99
+  currentInfectionPercent: 0
   spawnManager: {fileID: 785415623}
   antibodyPercentStart: 15
 --- !u!4 &1899319211
