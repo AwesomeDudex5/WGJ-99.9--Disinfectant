@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GermGrowth : MonoBehaviour
 {
+
     private const float GROWTH_DURATION = 0.7f;
     private const float SHRINK_DURATION = 1f;
     private float growthSpeed;
@@ -18,6 +19,7 @@ public class GermGrowth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
         isShrinking = false;
@@ -27,6 +29,7 @@ public class GermGrowth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isGrowing)
         {
             newScale = new Vector3(transform.localScale.x + growthSpeed * Time.deltaTime, transform.localScale.y + growthSpeed * Time.deltaTime, 1);
@@ -52,11 +55,20 @@ public class GermGrowth : MonoBehaviour
             }
         }
 
-        if (transform.localScale.x <= 0.0f && this.tag == "Player")
+        if (this.tag == "Player")
         {
-            GameManager.current.gameOverTrigger();
+            GameManager.current.updateMass(this.transform.localScale.x);
+
+            if (transform.localScale.x <= 0)
+            {
+                GameManager.current.gameOverTrigger();
+            }
         }
 
+        if(this.tag == "Germ" && this.transform.localScale.x <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
@@ -66,6 +78,7 @@ public class GermGrowth : MonoBehaviour
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
         growthSpeed = (targetScale.x - transform.localScale.x) / GROWTH_DURATION;
+
     }
 
     void shrink(float ammount)
@@ -73,11 +86,8 @@ public class GermGrowth : MonoBehaviour
         GameManager.current.decreasePercentage(ammount);
         isShrinking = true;
         targetScale = new Vector3(ammount, ammount, 1);
-        if (targetScale.x < 1)
-        {
-            Destroy(gameObject);
-        }
         shrinkSpeed = (transform.localScale.x - targetScale.x) / SHRINK_DURATION;
+
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -88,7 +98,7 @@ public class GermGrowth : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
-        else if (rb.bodyType == RigidbodyType2D.Dynamic && (col.tag == "Cell" || col.tag == "Antibodies") )
+        else if (rb.bodyType == RigidbodyType2D.Dynamic && (col.tag == "Cell" || col.tag == "Antibodies"))
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
         }

@@ -36,7 +36,6 @@ public class AiMovement : MonoBehaviour
             case aiType.cell:
                 if (inPlayerRange())
                 {
-                    Debug.Log("IN RANGE");
                     anim.SetBool("RunningAway", true);
                     runAway();
                 }
@@ -72,7 +71,7 @@ public class AiMovement : MonoBehaviour
     bool inPlayerRange()
     {
         bool inRange = false;
-        playerObjects = GameObject.FindGameObjectsWithTag("Player");
+        playerObjects = GameObject.FindGameObjectsWithTag("Germ");
         for (int i = 0; i < playerObjects.Length; i++)
         {
             if (Vector2.Distance(this.transform.position, playerObjects[i].transform.position) <= detectionRange)
@@ -101,10 +100,11 @@ public class AiMovement : MonoBehaviour
 
     IEnumerator startWander()
     {
+
         //adjust values as needed ************
         float currentScale = this.transform.localScale.x;
-        float randomX = Random.Range(-wanderRange, wanderRange);
-        float randomY = Random.Range(-wanderRange, wanderRange);
+        float randomX = Random.Range(this.transform.position.x - wanderRange, this.transform.position.x + wanderRange);
+        float randomY = Random.Range(this.transform.position.y - wanderRange, this.transform.position.y + wanderRange);
         targetPosition = new Vector3(randomX, randomY, 0f);
 
         yield return new WaitForSeconds(wanderDuration);
@@ -124,8 +124,6 @@ public class AiMovement : MonoBehaviour
             isRunningAway = true;
             StartCoroutine(startRunningAway());
         }
-
-        //  Debug.Log("Player Position: " + targetPlayerObject.position + " | TargetPosition: " + targetPosition);
 
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSplitting : MonoBehaviour
 {
+
     public GameObject germPrefab;
     [SerializeField] private float splitForceAmount;
 
@@ -24,7 +25,7 @@ public class PlayerSplitting : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !transform.GetComponentInChildren<GermGrowth>().isGrowing && transform.localScale.x > 1)
+        if (Input.GetKeyDown(KeyCode.Space) && !transform.GetComponentInChildren<GermGrowth>().isGrowing && transform.localScale.x > 2)
         {
             split();
         }
@@ -32,7 +33,6 @@ public class PlayerSplitting : MonoBehaviour
 
     void split()
     {
-        Debug.Log("Splitting");
         transform.localScale = new Vector3(transform.localScale.x / splitScaleDivider, transform.localScale.y / splitScaleDivider, 1);
         GameObject otherGerm = Instantiate(germPrefab, transform.position, Quaternion.identity);
         otherGerm.transform.localScale = this.transform.localScale;

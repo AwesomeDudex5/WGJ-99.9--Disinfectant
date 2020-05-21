@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseText;
-    public Text gameOverText;
+    public GameObject gameOverUI;
+    private Text gameOverText;
     public Text infectionPercentageText;
+    public Text currentMassText;
+    private float currentMass;
     public SpriteRenderer infectionBG;
     private Color infectionColor;
     public float currentInfectionPercent;
@@ -23,14 +26,16 @@ public class GameManager : MonoBehaviour
     {
         current = this;
         Time.timeScale = 1;
-       
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
         isPaused = false;
+        gameOverText = gameOverUI.GetComponent<Text>();
         infectionPercentageText.text = "Infection: " + "0.00%";
+        currentMassText.text = "Mass: " + currentMass;
         infectionColor = infectionBG.color;
         gameOverText.gameObject.SetActive(false);
         pauseText.gameObject.SetActive(false);
@@ -40,17 +45,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         infectBackground();
+
         if (currentInfectionPercent >= antibodyPercentStart)
         {
-            Debug.Log("START THE ANTIBODIES");
             spawnManager.initializeAntibodies = true;
         }
-        if (currentInfectionPercent <= 0)
+        if (currentInfectionPercent <= 0 || currentInfectionPercent >= 100)
         {
             gameOverTrigger();
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
+       
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
             {
@@ -78,6 +83,12 @@ public class GameManager : MonoBehaviour
         currentInfectionPercent -= amount;
         currentInfectionPercent = Mathf.Round(currentInfectionPercent * 100) / 100;
         infectionPercentageText.text = "Infection: " + currentInfectionPercent + "%";
+    }
+
+    public void updateMass(float amount)
+    {
+        currentMass = amount;
+        currentMassText.text = "Mass: " + currentMass;
     }
 
     void infectBackground()

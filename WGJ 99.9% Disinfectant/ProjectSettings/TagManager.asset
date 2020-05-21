@@ -8,6 +8,7 @@ TagManager:
   - Cell
   - Antibody
   - Border
+  - Germ
   layers:
   - Default
   - TransparentFX
