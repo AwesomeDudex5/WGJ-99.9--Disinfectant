@@ -4937,6 +4937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b2296d7cf163443bd7196c128b42f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GROWTH_DURATION: 0.7
+  SHRINK_DURATION: 1.5
   isGrowing: 0
   isShrinking: 0
 --- !u!58 &747230100722461237
