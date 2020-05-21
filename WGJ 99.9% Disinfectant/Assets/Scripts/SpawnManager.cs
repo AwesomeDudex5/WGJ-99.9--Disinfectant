@@ -34,13 +34,14 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnRange = (int)Camera.main.orthographicSize;
         if (canSpawnCells)
         {
             StartCoroutine(spawnCells());
         }
         if (initializeAntibodies)
         {
-            Debug.Log("Spawning Antibodies");
+            // Debug.Log("Spawning Antibodies");
             if (canSpawnAntibodies)
             {
                 StartCoroutine(spawnAntibodies());
@@ -59,7 +60,7 @@ public class SpawnManager : MonoBehaviour
             //take a look at this and adjust the values ***********
             randomX = Random.Range(playerTransform.position.x - spawnRange, playerTransform.position.x + spawnRange);
             randomY = Random.Range(playerTransform.position.y - spawnRange, playerTransform.position.y + spawnRange);
-            randomScale = Random.Range(playerTransform.localScale.x - cellScaleMin, cellScaleMax + playerTransform.localScale.x);
+            randomScale = Random.Range(playerTransform.localScale.x * cellScaleMin, cellScaleMax * playerTransform.localScale.x);
 
             GameObject cellObject = Instantiate(cellPrefab, new Vector2(randomX, randomY), Quaternion.identity);
             cellObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
@@ -81,7 +82,7 @@ public class SpawnManager : MonoBehaviour
 
             randomX = Random.Range(playerTransform.position.x - spawnRange, playerTransform.position.x + spawnRange);
             randomY = Random.Range(playerTransform.position.y - spawnRange, playerTransform.position.y + spawnRange);
-            randomScale = Random.Range(playerTransform.localScale.x - antibodyScaleMin, antibodyScaleMax + playerTransform.localScale.x);
+            randomScale = Random.Range(playerTransform.localScale.x * antibodyScaleMin, antibodyScaleMax * playerTransform.localScale.x);
 
             GameObject antibodyObject = Instantiate(antibodyPrefab[randomIndex], new Vector2(randomX, randomY), Quaternion.identity);
             antibodyObject.transform.localScale = new Vector3(randomScale, randomScale, 1);

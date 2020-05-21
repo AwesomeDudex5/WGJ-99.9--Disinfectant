@@ -222,14 +222,14 @@ MonoBehaviour:
   - {fileID: 9193392004642852256, guid: 66d0da7310ee3af4abb472fee80594e3, type: 3}
   - {fileID: 2780192357430162045, guid: 33ded4cac78b3024c91cf0be51267b16, type: 3}
   spawnRange: 20
-  cellSpawnInterval: 15
-  cellAmountPerSpawn: 8
-  cellScaleMin: 1
-  cellScaleMax: 2
+  cellSpawnInterval: 10
+  cellAmountPerSpawn: 10
+  cellScaleMin: 0.5
+  cellScaleMax: 1.2
   antibodySpawnInterval: 20
   antibodyAmountPerSpawn: 1
-  antibodyScaleMin: 1
-  antibodyScaleMax: 1
+  antibodyScaleMin: 0.3
+  antibodyScaleMax: 1.2
   initializeAntibodies: 0
 --- !u!4 &311012309
 Transform:
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   infectionBG: {fileID: 1736183054}
   currentInfectionPercent: 0.1
   spawnManager: {fileID: 311012308}
-  antibodyPercentStart: 3.2
+  antibodyPercentStart: 7
 --- !u!4 &1899319211
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,7 +1850,7 @@ PrefabInstance:
     - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2728.53
+      value: 11743
       objectReference: {fileID: 0}
     - target: {fileID: 5062578361173315927, guid: b9c4a3542549df040a6aacd929da6a13,
         type: 3}
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 425860644}
   cameraDistance: 7
-  moveSpeed: 2
+  moveSpeed: 5
 --- !u!114 &7672169604382258226
 MonoBehaviour:
   m_ObjectHideFlags: 0

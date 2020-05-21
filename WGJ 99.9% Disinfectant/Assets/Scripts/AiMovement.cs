@@ -36,7 +36,7 @@ public class AiMovement : MonoBehaviour
             case aiType.cell:
                 if (inPlayerRange())
                 {
-                    Debug.Log("IN RANGE");
+                    // Debug.Log("IN RANGE");
                     anim.SetBool("RunningAway", true);
                     runAway();
                 }

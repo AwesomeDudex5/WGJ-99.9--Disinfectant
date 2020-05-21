@@ -10,17 +10,23 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePosition;
     private Rigidbody2D rb;
 
+    private GermGrowth germGrowth;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        germGrowth = GetComponent<GermGrowth>();
     }
 
     // Update is called once per frame
     void Update()
     {
         mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
-        mainCamera.orthographicSize = transform.localScale.x * cameraDistance;
+        if (!germGrowth.isShrinking)
+        {
+            mainCamera.orthographicSize = transform.localScale.x * cameraDistance;
+        }
         mousePosition = Input.mousePosition;
     }
 

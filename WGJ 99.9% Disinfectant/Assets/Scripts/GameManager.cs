@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         infectBackground();
         if (currentInfectionPercent >= antibodyPercentStart)
         {
-            Debug.Log("START THE ANTIBODIES");
+            // Debug.Log("START THE ANTIBODIES");
             spawnManager.initializeAntibodies = true;
         }
         if (currentInfectionPercent <= 0)
