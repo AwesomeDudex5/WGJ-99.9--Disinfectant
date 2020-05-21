@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GermGrowth : MonoBehaviour
 {
+    public AudioClip germEatSound;
+    public AudioClip germDamagedSound;
+    private AudioSource _audioSource;
 
     private const float GROWTH_DURATION = 0.7f;
     private const float SHRINK_DURATION = 1f;
@@ -19,6 +22,7 @@ public class GermGrowth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = this.GetComponent<AudioSource>();
 
         spriteTransform = transform.GetChild(0).GetComponent<Transform>();
         isGrowing = false;
@@ -74,6 +78,10 @@ public class GermGrowth : MonoBehaviour
 
     void eatAndGrow(float ammount)
     {
+        //play sound
+        _audioSource.clip = germEatSound;
+        _audioSource.Play();
+
         GameManager.current.increasePercentage(ammount);
         isGrowing = true;
         targetScale = new Vector3(ammount, ammount, 1);
@@ -83,6 +91,10 @@ public class GermGrowth : MonoBehaviour
 
     void shrink(float ammount)
     {
+        //play sound
+        _audioSource.clip = germDamagedSound;
+        _audioSource.Play();
+
         GameManager.current.decreasePercentage(ammount);
         isShrinking = true;
         targetScale = new Vector3(ammount, ammount, 1);

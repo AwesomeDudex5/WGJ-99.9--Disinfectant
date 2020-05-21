@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerSplitting : MonoBehaviour
 {
-
+    public AudioClip splittingSound;
+    private AudioSource _audioSource;
     public GameObject germPrefab;
     [SerializeField] private float splitForceAmount;
 
@@ -17,7 +18,8 @@ public class PlayerSplitting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _audioSource = this.GetComponent<AudioSource>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -45,5 +47,9 @@ public class PlayerSplitting : MonoBehaviour
         //add force to player object
         rb.AddForce(transform.up * splitForceAmount, ForceMode2D.Impulse);
         transform.rotation = Quaternion.identity;
+
+        //play sound
+        _audioSource.clip = splittingSound;
+        _audioSource.Play();
     }
 }
