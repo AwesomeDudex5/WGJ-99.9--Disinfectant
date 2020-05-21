@@ -37,8 +37,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	spawnRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x - playerTransform.position.x;
-    	antibodySpawnRange = spawnRange / 2;
+    	//spawnRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x - playerTransform.position.x;
     	if (canSpawnCells)
         {
             StartCoroutine(spawnCells());
@@ -91,10 +90,19 @@ public class SpawnManager : MonoBehaviour
         {
             randomIndex = Random.Range(0, antibodyPrefab.Length);
 
-            int result = Random.Range(0, 2);
-            if (result == 0) randomX = playerTransform.position.x - antibodySpawnRange;
-            else randomX = playerTransform.position.x + antibodySpawnRange;
-            
+             int result = Random.Range(0, 2);
+             if (result == 0)
+             {
+                 randomX = Random.Range( playerTransform.position.x - 10 , playerTransform.position.x - 10 - antibodySpawnRange);
+             }
+             else
+             {
+                randomX = Random.Range(playerTransform.position.x + 10 , playerTransform.position.x + 10 + antibodySpawnRange);
+            }
+             
+           
+
+          //  randomX = Random.Range(playerTransform.position.x - antibodySpawnRange, playerTransform.position.x + antibodySpawnRange);
             randomY = Random.Range(playerTransform.position.y - antibodySpawnRange, playerTransform.position.y + antibodySpawnRange);
             randomScale = Random.Range(playerTransform.localScale.x - antibodyScaleMin, antibodyScaleMax + playerTransform.localScale.x);
 

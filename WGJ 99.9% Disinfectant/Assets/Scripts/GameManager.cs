@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public SpawnManager spawnManager;
 
     [SerializeField] private float antibodyPercentStart;
+    public GameObject atibodyWarningUI;
+    private int numberOfFlashes = 3;
+    private bool warningPlayed;
     private bool isPaused;
 
     public static GameManager current;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        warningPlayed = false;
         isPaused = false;
         gameOverText = gameOverUI.GetComponent<Text>();
         infectionPercentageText.text = "Infection: " + "0.00%";
@@ -49,6 +53,11 @@ public class GameManager : MonoBehaviour
         if (currentInfectionPercent >= antibodyPercentStart)
         {
             spawnManager.initializeAntibodies = true;
+            if(!warningPlayed)
+            {
+                warningPlayed = true;
+                StartCoroutine(displayWarning());
+            }
         }
         if (currentInfectionPercent <= 0 || currentInfectionPercent >= 100)
         {
@@ -124,6 +133,17 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseText.gameObject.SetActive(false);
+    }
+
+    IEnumerator displayWarning()
+    {
+        for(int i=0; i < numberOfFlashes; i++)
+        {
+            atibodyWarningUI.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            atibodyWarningUI.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
 }
