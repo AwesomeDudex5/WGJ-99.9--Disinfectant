@@ -6,14 +6,16 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject cellPrefab;
     public GameObject[] antibodyPrefab;
-    [SerializeField] private int spawnRange;
+    [SerializeField] private float spawnRange;
     [SerializeField] private int antibodySpawnRange;
     private Transform playerTransform;
 
     [Header("Cells Stats")]
     [SerializeField] private float cellSpawnInterval;
     [SerializeField] private int cellAmountPerSpawn;
-    [SerializeField] private float cellScaleMin, cellScaleMax;
+    [SerializeField] private float cellScaleMin;
+    [Header("In relation to player's scale")]
+    [SerializeField] private float cellScaleMax;
 
     [Header("Antibody Stats")]
     [SerializeField] private float antibodySpawnInterval;
@@ -35,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    	spawnRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x - playerTransform.position.x;
         if (canSpawnCells)
         {
             StartCoroutine(spawnCells());

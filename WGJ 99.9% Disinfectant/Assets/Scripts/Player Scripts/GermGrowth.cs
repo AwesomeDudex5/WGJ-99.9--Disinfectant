@@ -10,7 +10,7 @@ public class GermGrowth : MonoBehaviour
     private AudioSource _audioSource;
 
     private const float GROWTH_DURATION = 0.7f;
-    private const float SHRINK_DURATION = 1f;
+    private const float SHRINK_DURATION = 2f;
     private float growthSpeed;
     private float shrinkSpeed;
     private Vector3 targetScale;
@@ -79,8 +79,13 @@ public class GermGrowth : MonoBehaviour
     void eatAndGrow(float ammount)
     {
         //play sound
+<<<<<<< HEAD
        // _audioSource.clip = germEatSound;
        // _audioSource.Play();
+=======
+//        _audioSource.clip = germEatSound;
+//        _audioSource.Play();
+>>>>>>> 718582fa3fb5b37d124e06aefac012d31d222af3
 
         GameManager.current.increasePercentage(ammount);
         isGrowing = true;
@@ -92,8 +97,13 @@ public class GermGrowth : MonoBehaviour
     void shrink(float ammount)
     {
         //play sound
+<<<<<<< HEAD
         //_audioSource.clip = germDamagedSound;
        // _audioSource.Play();
+=======
+//        _audioSource.clip = germDamagedSound;
+//        _audioSource.Play();
+>>>>>>> 718582fa3fb5b37d124e06aefac012d31d222af3
 
         GameManager.current.decreasePercentage(ammount);
         isShrinking = true;
