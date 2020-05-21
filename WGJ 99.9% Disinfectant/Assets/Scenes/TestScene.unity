@@ -1199,7 +1199,7 @@ MonoBehaviour:
   cellScaleMin: 1
   cellScaleMax: 2
   antibodySpawnInterval: 20
-  antibodyAmountPerSpawn: 2
+  antibodyAmountPerSpawn: 3
   antibodyScaleMin: 1
   antibodyScaleMax: 2
   initializeAntibodies: 0
@@ -2337,6 +2337,66 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048556343926815718, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048556343926815718, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084851503646391092, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: playerScaleText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084851503646391092, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: currentMassText
+      value: 
+      objectReference: {fileID: 386515422}
+    - target: {fileID: 747230100722461237, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747230100722461237, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068191969795046146, guid: b9c4a3542549df040a6aacd929da6a13,
+        type: 3}
+      propertyPath: m_TagString
+      value: Germ
+      objectReference: {fileID: 0}
     - target: {fileID: 7672169603883834804, guid: b9c4a3542549df040a6aacd929da6a13,
         type: 3}
       propertyPath: m_Name
@@ -2402,72 +2462,12 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 425860644}
-    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085647867421372347, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5062578361173315927, guid: b9c4a3542549df040a6aacd929da6a13,
         type: 3}
       propertyPath: germPrefab
       value: 
       objectReference: {fileID: 4233649915546333770, guid: b9c4a3542549df040a6aacd929da6a13,
         type: 3}
-    - target: {fileID: 2084851503646391092, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: playerScaleText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2084851503646391092, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: currentMassText
-      value: 
-      objectReference: {fileID: 386515422}
-    - target: {fileID: 747230100722461237, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 747230100722461237, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048556343926815718, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048556343926815718, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068191969795046146, guid: b9c4a3542549df040a6aacd929da6a13,
-        type: 3}
-      propertyPath: m_TagString
-      value: Germ
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2521932733052078363, guid: b9c4a3542549df040a6aacd929da6a13, type: 3}
     - {fileID: 442399029915829288, guid: b9c4a3542549df040a6aacd929da6a13, type: 3}

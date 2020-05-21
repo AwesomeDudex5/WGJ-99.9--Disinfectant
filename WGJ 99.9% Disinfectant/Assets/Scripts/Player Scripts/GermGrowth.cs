@@ -79,8 +79,8 @@ public class GermGrowth : MonoBehaviour
     void eatAndGrow(float ammount)
     {
         //play sound
-        _audioSource.clip = germEatSound;
-        _audioSource.Play();
+       // _audioSource.clip = germEatSound;
+       // _audioSource.Play();
 
         GameManager.current.increasePercentage(ammount);
         isGrowing = true;
@@ -92,8 +92,8 @@ public class GermGrowth : MonoBehaviour
     void shrink(float ammount)
     {
         //play sound
-        _audioSource.clip = germDamagedSound;
-        _audioSource.Play();
+        //_audioSource.clip = germDamagedSound;
+       // _audioSource.Play();
 
         GameManager.current.decreasePercentage(ammount);
         isShrinking = true;
