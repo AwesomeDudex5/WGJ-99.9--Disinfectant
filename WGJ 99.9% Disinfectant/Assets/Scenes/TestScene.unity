@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ef414cc7cbec2488261af4c2863542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 8920019243273284665, guid: 424bb05aa22685e43bc988f14393ef2b,
+  cellPrefab: {fileID: 1229044687379444388, guid: 7ff7a0ea1a3b61149b48c5e7d1379531,
     type: 3}
   antibodyPrefab:
   - {fileID: 9193392004642852256, guid: 66d0da7310ee3af4abb472fee80594e3, type: 3}
@@ -2431,7 +2431,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.566
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

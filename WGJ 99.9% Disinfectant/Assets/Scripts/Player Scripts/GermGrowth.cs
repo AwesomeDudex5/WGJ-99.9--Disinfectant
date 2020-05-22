@@ -9,6 +9,8 @@ public class GermGrowth : MonoBehaviour
     public AudioClip germDamagedSound;
     private AudioSource _audioSource;
 
+    public GameObject germBody;
+
     private const float GROWTH_DURATION = 0.7f;
     private const float SHRINK_DURATION = 2f;
     private float growthSpeed;
@@ -69,7 +71,7 @@ public class GermGrowth : MonoBehaviour
             }
         }
 
-        if(this.tag == "Germ" && this.transform.localScale.x <= 0)
+        if (this.tag == "Germ" && this.transform.localScale.x <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -79,12 +81,9 @@ public class GermGrowth : MonoBehaviour
     void eatAndGrow(float ammount)
     {
         //play sound
+        // _audioSource.clip = germEatSound;
+        // _audioSource.Play();
 
-       // _audioSource.clip = germEatSound;
-       // _audioSource.Play();
-
-//        _audioSource.clip = germEatSound;
-//        _audioSource.Play();
 
 
         GameManager.current.increasePercentage(ammount);
@@ -97,12 +96,9 @@ public class GermGrowth : MonoBehaviour
     void shrink(float ammount)
     {
         //play sound
-
         //_audioSource.clip = germDamagedSound;
-       // _audioSource.Play();
+        // _audioSource.Play();
 
-//        _audioSource.clip = germDamagedSound;
-//        _audioSource.Play();
 
 
         GameManager.current.decreasePercentage(ammount);
@@ -141,9 +137,21 @@ public class GermGrowth : MonoBehaviour
                 isGrowing = false;
             }
             shrink(transform.localScale.x - col.transform.localScale.x / 3);
+            StartCoroutine(flashDamge());
             Destroy(col.gameObject);
         }
 
+    }
+
+    IEnumerator flashDamge()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            germBody.SetActive(false);
+            yield return new WaitForSeconds(0.05f);
+            germBody.SetActive(true);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
 }
